@@ -1,4 +1,4 @@
-[
+export const Data = [
   {
     "name": "Afghanistan",
     "topLevelDomain": [".af"],
