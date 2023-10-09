@@ -25,6 +25,11 @@
     background-color: var(--color-background);
 }
 
+a{
+    text-decoration: none;
+    color: var(--color-text)
+}
+
 header{
     width: 100%;
     display: flex;
@@ -204,4 +209,118 @@ main .countries .countryItem .info .otherInfo{
 
 main .countries .countryItem .info .otherInfo p span{
     font-weight: 200;
+}
+
+.clickCountry{
+    width: 100%;
+    margin-top: 2rem;
+    padding: 3rem;
+}
+
+.clickCountry .button{
+    background-color: var(--color-primary);
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 52%, 0.1);
+    color: var(--color-text);
+}
+
+.clickCountry .button a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    font-family: inherit;
+    height: 100%;
+}
+
+.clickCountry .button:hover{
+    transform: scale(1.05);
+    transition: all .25s ease-in-out;
+}
+
+.clickCountry .button button{
+    height: 100%;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    color: var(--color-text);
+}
+
+.clickCountry .countryInfo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    color: var(--color-text);
+}
+
+.clickCountry .countryInfo img{
+    width: 600px;
+}
+
+.clickCountry .countryInfo .information{
+    width: 50%;
+}
+
+.clickCountry .countryInfo .information h1{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.clickCountry .countryInfo .information .otherInfo{
+    width: 100%;
+    display: flex;
+    gap: 15rem;
+    margin-top: 1.5rem;
+}
+
+.clickCountry .countryInfo .information .otherInfo ul{
+    list-style: none;
+}
+
+.clickCountry .countryInfo .information .otherInfo ul li{
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.clickCountry .countryInfo .information .otherInfo ul li span{
+    font-weight: 400;
+}
+
+.clickCountry .countryInfo .information .borderCountries{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.clickCountry .countryInfo .information .borderCountries p.name{
+    font-weight: 600;
+}
+
+.clickCountry .countryInfo .information .borderCountries .neighbors{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.clickCountry .countryInfo .information .borderCountries .neighbors .neighoringCountry{
+    background-color: var(--color-primary);
+    width: 90px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 52%, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+    font-family: inherit;
 }

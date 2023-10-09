@@ -1,8 +1,10 @@
 import React from 'react'
 
-function CountryItem({ image, name, population, region, capital }) {
+function CountryItem({ image, name, population, region, capital}) {
+
+
   return (
-    <section className='countryItem'>
+      <section className='countryItem'>
         <img src={image} alt="Country Flag" />
         <section className="info">
             <h2>{name}</h2>
@@ -12,7 +14,7 @@ function CountryItem({ image, name, population, region, capital }) {
                 <p>Capital: <span>{capital}</span></p>
             </section>
         </section>
-    </section>
+      </section>
   )
 }
 

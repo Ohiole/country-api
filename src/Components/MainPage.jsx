@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown, faArrowLeft, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Data } from '../data';
+import { Link } from 'react-router-dom'
 import CountryItem from './CountryItem';
-import CountryPage from './CountryPage';
 
 function MainPage() {
     const [selectValue, setSelectValue] = useState('Filter by region');
     const [isOpen, setIsOpen] = useState(false);
-    const [searchValue, setSearchValue] = useState('')
+    const [searchValue, setSearchValue] = useState('');
 
     useEffect(() => {
         const shuffle = () => {
@@ -65,14 +65,17 @@ function MainPage() {
                     (Data.filter((item) => {
                         return searchValue.toLowerCase() ===  '' ? item : item.name.toLowerCase().includes(searchValue)
                     }).map((item, key) => 
+                    <Link to={`/item/${item.name}`}>
                         <CountryItem 
-                            key={key}
-                            image={item.flags.png}
-                            name={item.name}
-                            population={item.population}
-                            region={item.region}
-                            capital={item.capital}
-                        />))
+                        key={key}
+                        image={item.flags.png}
+                        name={item.name}
+                        population={item.population}
+                        region={item.region}
+                        capital={item.capital}
+                        />
+                    </Link>
+                     ))
                 } 
                 {
                     selectValue === 'Africa' &&
@@ -145,14 +148,7 @@ function MainPage() {
                     /> ))
                 }
             </section>
-        </section>
-        <section className="clickCountry">
-            <section className="button">
-                <FontAwesomeIcon icon={faArrowLeft} />
-                <button>Back</button>
-            </section>
-            <CountryPage />
-        </section>
+        </section> 
     </main>
   )
 }
