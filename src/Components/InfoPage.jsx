@@ -34,7 +34,7 @@ function InfoPage() {
 
   const borderCountries = res[0].borders
 
-  const borderEmpty = []
+  const borderEmpty = ['None']
 
   return (
     <section className="clickCountry">
