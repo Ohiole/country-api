@@ -13,13 +13,14 @@ function MainPage() {
     useEffect(() => {
         const shuffle = () => {
             for (let i = Data.length - 1; i > 0; i--) { 
-              const j = Math.floor(Math.random() * (i + 1)); 
-              [Data[i], Data[j]] = [Data[j], Data[i]]; 
-            } 
-            return Data;
+              const j = Math.floor(Math.random() * (i + 1));
+             [Data[i], Data[j]] = [Data[j], Data[i]]; 
+            }  
+
+            return Data
         };
         shuffle();
-    }, [selectValue])
+    }, [])
 
     const updateValue = (selectValue) => {
         setIsOpen(false);
@@ -42,12 +43,13 @@ function MainPage() {
             <section className="search">
                 <section className="input">
                     <FontAwesomeIcon icon={faSearch} />
-                    <input type="text" placeholder='Search for a country...' value={searchValue} onChange={searchIt} />
+                    <input type="text" placeholder='Search for a country...' value={searchValue} onChange={searchIt}
+                    onFocus={() => setIsOpen(false)} />
                 </section>
                 <section className="options">
                     <section className="filter" onClick={() => setIsOpen(!isOpen)}>
                         <p>{selectValue}</p>
-                        <FontAwesomeIcon icon={faAngleDown} className='icon' />
+                        <FontAwesomeIcon icon={faAngleDown} className={isOpen ? 'icon rotate' : 'icon'} />
                     </section>
                     { isOpen ? <section className="eachOpt">
                         <p onClick={() => updateValue('Filter by region')}>All</p>

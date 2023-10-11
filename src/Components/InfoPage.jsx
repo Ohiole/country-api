@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { useParams } from 'react-router-dom';
@@ -7,21 +7,34 @@ import CountryPage from './CountryPage'
 import { Link } from 'react-router-dom'
 
 function InfoPage() {
-  const [country, setCountry] = useState([]);
 
   const countryName = useParams()
 
-  const getCountryByName = () => {
+  const res =  Data.filter(item => item.name === countryName.countryName)
 
-    const res = (Data.filter(item => item.name === countryName.countryName));    
+  const name = res[0].name
 
+  const image = res[0].flags.png
 
-  }
+  const nativeName = res[0].nativeName
 
-  useEffect(() => {
-    getCountryByName()
-  }, [countryName])
+  const population = res[0].population
 
+  const region = res[0].region
+
+  const subRegion = res[0].subregion
+
+  const capital = res[0].capital
+
+  const topLevelDomain = res[0].topLevelDomain
+
+  const currencies = res[0].currencies[0].name
+  
+  const languages = res[0].languages.map(language => language.name).join(', ')
+
+  const borderCountries = res[0].borders
+
+  const borderEmpty = []
 
   return (
     <section className="clickCountry">
@@ -31,22 +44,19 @@ function InfoPage() {
                     <button>Back</button>
                 </Link>
             </section>
-            {
-            country?.map((country, key) => ( <CountryPage 
-              key={key}
-              image = {country.flags.png}
-              name = {country.name}
-              nativeName = {country.nativeName}
-              population = {country.population}
-              region = {country.region}
-              subRegion = {country.subregion}
-              capital = {country.capital}
-              topLevelDomain = {country.topLevelDomain}
-              currencies = {country.currencies}
-              languages = {country.languages}
-              borderCountries = {country.borders}
-            />))
-            }
+            <CountryPage 
+              image = {image}
+              name = {name}
+              nativeName = {nativeName}
+              population = {population}
+              region = {region}
+              subRegion = {subRegion}
+              capital = {capital}
+              topLevelDomain = {topLevelDomain}
+              currencies = {currencies}
+              languages = {languages}
+              borderCountries = {res[0].hasOwnProperty('borders') ? borderCountries : borderEmpty}
+            />
         </section> 
   )
 }

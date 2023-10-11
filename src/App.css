@@ -39,6 +39,10 @@ header{
     box-shadow: 0 1px 3px hsla(0, 0%, 52%, 0.2);
     color: var(--color-text);
     background-color: var(--color-primary);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 header h1{
@@ -124,6 +128,11 @@ main .search .options .filter{
 
 main .search .options .filter .icon{
     cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+main .search .options .filter .icon.rotate{
+    transform: rotate(180deg);
 }
 
 main .search .options .eachOpt{
@@ -213,7 +222,6 @@ main .countries .countryItem .info .otherInfo p span{
 
 .clickCountry{
     width: 100%;
-    margin-top: 2rem;
     padding: 3rem;
 }
 
@@ -255,13 +263,15 @@ main .countries .countryItem .info .otherInfo p span{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
     align-items: center;
     margin-top: 3rem;
     color: var(--color-text);
 }
 
 .clickCountry .countryInfo img{
-    width: 600px;
+    width: 550px;
+    height: 400px;
 }
 
 .clickCountry .countryInfo .information{
@@ -276,17 +286,18 @@ main .countries .countryItem .info .otherInfo p span{
 .clickCountry .countryInfo .information .otherInfo{
     width: 100%;
     display: flex;
-    gap: 15rem;
     margin-top: 1.5rem;
 }
 
 .clickCountry .countryInfo .information .otherInfo ul{
     list-style: none;
+    flex-basis: 50%;
 }
 
 .clickCountry .countryInfo .information .otherInfo ul li{
     font-weight: 600;
     margin-top: 0.5rem;
+    width: 100%;
 }
 
 .clickCountry .countryInfo .information .otherInfo ul li span{
@@ -296,7 +307,6 @@ main .countries .countryItem .info .otherInfo p span{
 .clickCountry .countryInfo .information .borderCountries{
     margin-top: 2rem;
     display: flex;
-    align-items: center;
     gap: 1rem;
 }
 
@@ -305,9 +315,9 @@ main .countries .countryItem .info .otherInfo p span{
 }
 
 .clickCountry .countryInfo .information .borderCountries .neighbors{
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .clickCountry .countryInfo .information .borderCountries .neighbors .neighoringCountry{
@@ -323,4 +333,78 @@ main .countries .countryItem .info .otherInfo p span{
     justify-content: center;
     font-weight: 300;
     font-family: inherit;
+}
+
+@media screen and (max-width: 1235px){
+    .clickCountry .countryInfo img{
+        width: 450px;
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 1145px){
+    .clickCountry .countryInfo .information .borderCountries .neighbors{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 995px){
+    .clickCountry .countryInfo{
+       align-items: flex-start;
+    }
+    .clickCountry .countryInfo .information .otherInfo{
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .clickCountry .countryInfo .information .borderCountries{
+        flex-direction: column;
+    }
+    .clickCountry .countryInfo .information .borderCountries .neighbors{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px){
+    .clickCountry{
+        padding: 1rem;
+    }
+    .clickCountry .countryInfo{
+        flex-direction: column;
+    }
+    .clickCountry .countryInfo img{
+        width: 100%;
+        height: 400px;
+    }
+    .clickCountry .countryInfo .information .borderCountries .neighbors{
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media screen and (max-width: 618px){
+    .clickCountry .countryInfo img{
+        width: 100%;
+        height: 300px;
+    }
+    .clickCountry .countryInfo .information{
+        width: 100%;
+    }
+    .clickCountry .countryInfo .information .borderCountries .neighbors{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .clickCountry .countryInfo .information .otherInfo ul{
+        flex-basis: 100%;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .clickCountry .countryInfo .information .borderCountries .neighbors{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 320px){
+    .clickCountry .countryInfo .information .borderCountries .neighbors{
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
