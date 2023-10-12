@@ -39,7 +39,7 @@ function InfoPage() {
   return (
     <section className="clickCountry">
             <section className="button">
-                <Link to='/country-api'>
+                <Link to='/'>
                     <FontAwesomeIcon icon={faArrowLeft} />
                     <button>Back</button>
                 </Link>

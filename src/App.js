@@ -20,7 +20,7 @@ function App() {
       <Router>
         <Header changeBg={changeBg} bgMode={bgMode}/>
         <Routes>
-          <Route path='/country-api' exact element={<MainPage />} />
+          <Route path='/' exact element={<MainPage />} />
           <Route path='/item/:countryName' exact element={<InfoPage />} />
         </Routes>
       </Router>
