@@ -84,70 +84,80 @@ function MainPage() {
                     (africa.filter((item) => {
                         return searchValue.toLowerCase() ===  '' ? item : item.name.toLowerCase().includes(searchValue)
                     }).map((item, key) => 
-                    <CountryItem 
+                    <Link to={`/item/${item.name}`}>
+                        <CountryItem 
                         key={key}
                         image={item.flags.png}
                         name={item.name}
                         population={item.population}
                         region={item.region}
                         capital={item.capital}
-                    /> ))
+                        />
+                    </Link>))
                 }
                 {
                     selectValue === 'America' &&
                     (america.filter((item) => {
                         return searchValue.toLowerCase() ===  '' ? item : item.name.toLowerCase().includes(searchValue)
                     }).map((item, key) => 
-                    <CountryItem 
+                    <Link to={`/item/${item.name}`}>
+                        <CountryItem 
                         key={key}
                         image={item.flags.png}
                         name={item.name}
                         population={item.population}
                         region={item.region}
                         capital={item.capital}
-                    /> ))
+                        />
+                    </Link> ))
                 }
                 {
                     selectValue === 'Asia' &&
                     (asia.filter((item) => {
                         return searchValue.toLowerCase() ===  '' ? item : item.name.toLowerCase().includes(searchValue)
                     }).map((item, key) => 
-                    <CountryItem 
+                    <Link to={`/item/${item.name}`}>
+                        <CountryItem 
                         key={key}
                         image={item.flags.png}
                         name={item.name}
                         population={item.population}
                         region={item.region}
                         capital={item.capital}
-                    /> ))
+                        />
+                    </Link> ))
                 }
                 {
                     selectValue === 'Europe' &&
                     (europe.filter((item) => {
                         return searchValue.toLowerCase() ===  '' ? item : item.name.toLowerCase().includes(searchValue)
                     }).map((item, key) => 
-                    <CountryItem 
+                    <Link to={`/item/${item.name}`}>
+                        <CountryItem 
                         key={key}
                         image={item.flags.png}
                         name={item.name}
                         population={item.population}
                         region={item.region}
                         capital={item.capital}
-                    /> ))
+                        />
+                    </Link> ))
                 }
                 {
                     selectValue === 'Oceania' &&
                     (oceania.filter((item) => {
                         return searchValue.toLowerCase() ===  '' ? item : item.name.toLowerCase().includes(searchValue)
                     }).map((item, key) => 
-                    <CountryItem 
+                    <Link to={`/item/${item.name}`}>
+                        <CountryItem 
                         key={key}
                         image={item.flags.png}
                         name={item.name}
                         population={item.population}
                         region={item.region}
                         capital={item.capital}
-                    /> ))
+                        />
+                    </Link>))
                 }
             </section>
         </section> 
